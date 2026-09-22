@@ -1,17 +1,16 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: My workflow
-
 on:
   push:
     branches:
-      - '**'
-
+      - "**"
 jobs:
   build:
+    environment: Garrett Hartney
     steps:
-      - name: Say hello to my test demo 
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
+      - run: |
           echo "hello world"
+        uses: docker://golang:1.20.3-alpine3.17
+        name: Say hello to my test demo
+        shell: sh
